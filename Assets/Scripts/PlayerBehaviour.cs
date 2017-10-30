@@ -25,14 +25,6 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //--起動時に自身の着ているものを設定
-        /*hukuNow = "Huku01";
-        zubonNow = "Zubon01";
-        kamiNow = "Hair01";
-        //akusesariNow = "Megane01";
-        kaoNow = "Body";
-        kutsuNow = "Shoes00";
-        */
         PracticeWearingInit();
 	}
 

@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class TouchObject : MonoBehaviour {
     // rayが届く範囲
     public float distance = 100f;
-    public static string selectedAvatarName;
+    public static string selectedObjectName;
+    public static GameObject selectedObject;
     void Update() {
         // 左クリックを取得
         if (Input.GetMouseButtonDown(0)) {
@@ -18,6 +19,7 @@ public class TouchObject : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, distance)) {
                 // rayが当たったオブジェクトの名前を取得
                 string objectName = hit.collider.gameObject.name;
+                selectedObject = hit.collider.gameObject;
                 //Debug.Log(objectName);
                 //--アバタが決定し、編集部屋のシーンへ移行
                 if (objectName == "DeterminePanel") {
@@ -30,7 +32,7 @@ public class TouchObject : MonoBehaviour {
                     }
                     SceneManager.LoadScene("AES");
                 }
-                selectedAvatarName = selectedAvatarNameFromPanel(objectName);
+                selectedObjectName = selectedAvatarNameFromPanel(objectName);
             }
         }
     }

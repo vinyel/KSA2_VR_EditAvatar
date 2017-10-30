@@ -27,7 +27,7 @@ public class AvatarInputToList : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //--選択されたパネルのアバタを表示
-        string san = TouchObject.selectedAvatarName;
+        string san = TouchObject.selectedObjectName;
         if ( san != null ) {
             manageAvatar(san);
         }
@@ -41,6 +41,7 @@ public class AvatarInputToList : MonoBehaviour {
                 avatarList[i].SetActive(true);
                 avatarNow = avatarList[i];
                 judgeGender(avatarList[i].name);
+                //--選択されたアバタを初期化(falseClothesListをアバタに応じて更新する必要があるため)
                 PlayerBehaviour pb = avatarList[i].GetComponent<PlayerBehaviour>();
                 pb.PracticeWearingInit();
                 continue;
