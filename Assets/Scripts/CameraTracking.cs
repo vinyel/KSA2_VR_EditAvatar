@@ -12,8 +12,7 @@ public class CameraTracking : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        targetObj = GameObject.Find("man03x"); //ここのちに訂正すべし
-        Debug.Log(PlayerBehaviour.avatarNow);
+        targetObj = AvatarInputToList.avatarNow;
         targetPos = targetObj.transform.position;
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSystem01 : MonoBehaviour {
-    public static string seibetsu;
+    //public static string seibetsu;
     // Use this for initialization
     void Start() {
 
@@ -16,9 +16,7 @@ public class GameSystem01 : MonoBehaviour {
     }
 
     public void ButtonPush() {
-        seibetsu = this.gameObject.name;
-        Debug.Log(seibetsu);
-        SceneManager.LoadScene("AES");
+
     }
 
 }

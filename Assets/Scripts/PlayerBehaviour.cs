@@ -25,36 +25,31 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-        //--性別選択結果、ほかクラスのフィールド
-        seibetsuNow = GameSystem01.seibetsu;
-        //--選択されなかった性別のアバタを削除
-        deleteAvatar(seibetsuNow);
-
         //--起動時に自身の着ているものを設定
-        hukuNow = "Huku01";
+        /*hukuNow = "Huku01";
         zubonNow = "Zubon01";
         kamiNow = "Hair01";
-        akusesariNow = "Megane01";
+        //akusesariNow = "Megane01";
         kaoNow = "Body";
         kutsuNow = "Shoes00";
-
+        */
         PracticeWearingInit();
 	}
 
-    //--アバター削除用メソッド
-    private void deleteAvatar(string ava) {
-        if ( ava == "woman" ) {
-            avatarNow = "woman00x";
-            Destroy(GameObject.Find("man03x"));
-        } else {
-            avatarNow = "man03x"; //カメラを追従させるために、確定したモデルの名前を格納
-            Destroy(GameObject.Find("woman00x")); //選択されたのが男性ならば、女性のアバタを削除
-        }
-    }
-
     //--自身の着ているものを初期化するメソッド
     public void PracticeWearingInit() {
+
+        // Listの初期化
+        falseClothesList.Clear();
+        falseClothesList.RemoveAll(MatchNullable);
+
+        hukuNow = "Huku01";
+        zubonNow = "Zubon01";
+        kamiNow = "Hair01";
+        //akusesariNow = "Megane01";
+        kaoNow = "Body";
+        kutsuNow = "Shoes00";
+
         var avatar = GameObject.Find(this.gameObject.name) as GameObject;
         var avaTransform = avatar.GetComponentInChildren<Transform>();
 
@@ -89,6 +84,10 @@ public class PlayerBehaviour : MonoBehaviour {
             avaChild.gameObject.SetActive(false);
         }
 
+    }
+
+    private static bool MatchNullable(GameObject game) {
+        return (game == null) ? true : false;
     }
     //->名前判定
     private bool nameJudge(string now, string child) {
