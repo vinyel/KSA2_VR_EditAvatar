@@ -8,11 +8,17 @@ public class EditSkinColor : MonoBehaviour {
     void Start () {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-		if (TouchObject.selectedObject.name == "SkinColorPanel1") {
+
+    // Update is called once per frame
+    void Update() {
+        if (TouchObject.isTouch) {
+            touchColorObject();
+        }    
+    }
+
+    void touchColorObject() {
+
+        if (TouchObject.selectedObject.name == "SkinColorPanel1") {
             changeAvatarSkinColor(TouchObject.selectedObject);
         }
         else if (TouchObject.selectedObject.name == "SkinColorPanel2") {
@@ -21,7 +27,13 @@ public class EditSkinColor : MonoBehaviour {
         else if (TouchObject.selectedObject.name == "SkinColorPanel3") {
             changeAvatarSkinColor(TouchObject.selectedObject);
         }
-	}
+        else if (TouchObject.selectedObject.name == "SkinColorPanel4") {
+            changeAvatarSkinColor(TouchObject.selectedObject);
+        }
+        else {
+
+        }
+    }
 
     void changeAvatarSkinColor(GameObject go) {
         Material material = null;

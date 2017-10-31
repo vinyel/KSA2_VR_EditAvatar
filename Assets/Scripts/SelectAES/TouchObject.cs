@@ -8,9 +8,11 @@ public class TouchObject : MonoBehaviour {
     public float distance = 100f;
     public static string selectedObjectName;
     public static GameObject selectedObject;
+    public static bool isTouch = false;
     void Update() {
         // 左クリックを取得
         if (Input.GetMouseButtonDown(0)) {
+            isTouch = true;
             // クリックしたスクリーン座標をrayに変換
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             // Rayの当たったオブジェクトの情報を格納する
@@ -22,11 +24,11 @@ public class TouchObject : MonoBehaviour {
                 selectedObject = hit.collider.gameObject;
                 //Debug.Log(objectName);
                 //--アバタが決定し、編集部屋のシーンへ移行
-                if (objectName == "DeterminePanel") {
+                if (objectName == "DeterminePanel" || objectName == "DeterminePanel2") {
                     DontDestroyOnLoad(AvatarInputToList.avatarNow);
                     for ( int i = AvatarInputToList.avatarList.Count - 1; i >= 0; i-- ) {
                         if ( AvatarInputToList.avatarList[i] != AvatarInputToList.avatarNow ) {
-                            Debug.Log(AvatarInputToList.avatarList[i]);
+                            //Debug.Log(AvatarInputToList.avatarList[i]);
                             Destroy(AvatarInputToList.avatarList[i]);
                         }
                     }
@@ -35,6 +37,7 @@ public class TouchObject : MonoBehaviour {
                 selectedObjectName = selectedAvatarNameFromPanel(objectName);
             }
         }
+        
     }
 
     string selectedAvatarNameFromPanel(string panelName) {

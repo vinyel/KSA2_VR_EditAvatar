@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 //アバタが身に着けている衣服のオブジェクトの名前と
 //プレハブの名前は統一する！！！
 
+//新たに服等を実装したときに手入力あり★
+
 
 public class ManekinBehaviour : MonoBehaviour {
     //--マネキンの座標を取得
@@ -49,24 +51,11 @@ public class ManekinBehaviour : MonoBehaviour {
             Destroy(this.gameObject);   
         } else {    // そうでないなら服を着せる
             string manekinName = this.gameObject.name;
-            Debug.Log(manekinName);
             //--マネキンを識別し、各々のマネキンの服を着せる
             manekinJudge(manekinName);
         }
         
     }
-
-    /*void destroyThis() {
-        //アバタの性別が男で、自身が男用マネキンではないとき、消える
-        if ( AvatarInputToList.genderNow == "man" && isManekinGender() != "manMane") {
-            this.GetComponent<ManekinBehaviour>().enabled = false;
-            Destroy(this.gameObject);
-        }
-        else if ( AvatarInputToList.genderNow == "woman" && isManekinGender() != "womanMane" ) {
-            this.GetComponent<ManekinBehaviour>().enabled = false;
-            Destroy(this.gameObject);
-        }
-    }*/
 
     bool IsDestroy() {
 
@@ -190,7 +179,7 @@ public class ManekinBehaviour : MonoBehaviour {
         return false;
     }
 
-    //-------以下アバタとマネキンとのやり取り--------------------------------------------------------
+    //-------以下アバタとマネキンとのやり取り★マネキンの種類が増えた時★--------------------------------------------------------
     void behaviourBetweenAvaAndMane() {
         GameObject clothes;
         string clothesName;
@@ -206,7 +195,6 @@ public class ManekinBehaviour : MonoBehaviour {
             
             //--隠された服のリストの要素から取得した名前と一致するものを検索
             for ( int i = PlayerBehaviour.falseClothesList.Count - 1; i >= 0; i-- ) {
-                Debug.Log("1");
                 if ( PlayerBehaviour.falseClothesList[i].name == clothesName ) {
                     //--アバタが着ている該当するものを非表示から表示に
                     PlayerBehaviour.falseClothesList[i].SetActive(true);
@@ -221,6 +209,13 @@ public class ManekinBehaviour : MonoBehaviour {
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.hukuNow = PlayerBehaviour.falseClothesList[i].name;
                     }
+                    else if (wearingClothesName == "zubon") {
+                        wearingClothesObject = seekChildObject(PlayerBehaviour.zubonNow);
+                        //falseの管理リストに追加
+                        PlayerBehaviour.falseClothesList.Add(wearingClothesObject);
+                        wearingClothesObject.SetActive(false);
+                        PlayerBehaviour.zubonNow = PlayerBehaviour.falseClothesList[i].name;
+                    }
 
                     //アクティブがtrueになるのでfalseのlistから削除
                     PlayerBehaviour.falseClothesList.RemoveAt(i);
@@ -231,7 +226,7 @@ public class ManekinBehaviour : MonoBehaviour {
         }
     }
 
-    //--マネキンの着ている服を返り値とするメソッド
+    //--マネキンの着ている服を返り値とするメソッド★マネキンの種類が増えた時★
     GameObject returnClothes(string mn) {
         //--まずは服を着るマネキンかどうか識別
         
@@ -249,21 +244,17 @@ public class ManekinBehaviour : MonoBehaviour {
         }
 
         //--続いてズボンを着るマネキンかどうか識別
-        else if (mn == "manekin11") {
+        if ( mn == "zubonManekin01_" + AvatarInputToList.genderNow ) {
             return PrefabInputToList.pfZubonList[0];
         }
-        else if (mn == "manekin12") {
+        else if ( mn == "zubonManekin02_" + AvatarInputToList.genderNow ) {
             return PrefabInputToList.pfZubonList[1];
         }
-        else if (mn == "manekin13") {
-            return PrefabInputToList.pfZubonList[2];
-        }
-
         //見つからなければnull
         
         return null;
     }
-    //--マネキンの名前から服かズボンかなど判定
+    //--マネキンの名前から服かズボンかなど判定★マネキンの種類が増えた時★
     string isClothes() {
         string thisManekinName = this.transform.name;
         string kinds;
