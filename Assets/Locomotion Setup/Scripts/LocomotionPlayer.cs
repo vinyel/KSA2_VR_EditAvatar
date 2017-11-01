@@ -27,10 +27,16 @@ public class LocomotionPlayer : MonoBehaviour {
     
 	void Update () 
 	{
+        /*
         if (animator && Camera.main)
 		{
             JoystickToEvents.Do(transform,Camera.main.transform, ref speed, ref direction);
             locomotion.Do(speed * 6, direction * 180);
-		}		
-	}
+		}
+        */
+        if (animator && FPSCamera.cameraNow) {
+            JoystickToEvents.Do(transform, FPSCamera.cameraNow.transform, ref speed, ref direction);
+            locomotion.Do(speed * 6, direction * 180);
+        }
+    }
 }

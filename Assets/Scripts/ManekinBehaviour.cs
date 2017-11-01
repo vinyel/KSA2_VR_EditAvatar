@@ -19,6 +19,8 @@ public class ManekinBehaviour : MonoBehaviour {
     //private float maneY;
     private float maneZ;
 
+    private AudioSource sound01;
+
     //--マネキンとアバタの相対距離betweenAvatar
     private float distBetX;
     //private float distBetY;
@@ -40,7 +42,7 @@ public class ManekinBehaviour : MonoBehaviour {
     private GameObject prefabMegane;
 
     //--相対距離の判定用変数
-    private float DIST = 0.8f;
+    private float DIST = 0.85f;
 
     //--服を着替えられるか
     private bool canWear = false;
@@ -48,8 +50,6 @@ public class ManekinBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //--アバタの性別によって自身を消す
-        //destroyThis();
-
         if ( IsDestroy() ) {    // 消していいマネキンなら消す
             Destroy(this.gameObject);   
         } else {    // そうでないなら服を着せる
@@ -57,7 +57,7 @@ public class ManekinBehaviour : MonoBehaviour {
             //--マネキンを識別し、各々のマネキンの服を着せる
             manekinJudge(manekinName);
         }
-        
+        sound01 = FPSCamera.cameraNow.GetComponent<AudioSource>();
     }
 
     bool IsDestroy() {
@@ -71,6 +71,7 @@ public class ManekinBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         //--マネキンの位置を取得
         maneX = this.transform.position.x;
         //maneY = this.transform.position.y;
@@ -126,7 +127,12 @@ public class ManekinBehaviour : MonoBehaviour {
             //--矢印プレハブをマネキン自身の頭上にインスタンス化, obj01は矢印
             obj01 = (GameObject)Instantiate(PrefabInputToList.yajirushi, this.transform.position, Quaternion.identity);
             Vector3 newYajiPosition = this.transform.position;
-            newYajiPosition.y += 1.87f;
+            if ( isClothes() == "megane" || isClothes() == "kaburimono" || isClothes() == "kami" ) {
+                newYajiPosition.y += 2.18f;
+            } else {
+                newYajiPosition.y += 1.86f;
+            }
+
             obj01.transform.position = newYajiPosition;
             //インスタンス化されたオブジェクトをマネキンに合わせて回転, xはマネキンの角度から90度プラスでピッタリ
             obj01.transform.Rotate(this.transform.localEulerAngles.x+90,
@@ -141,7 +147,11 @@ public class ManekinBehaviour : MonoBehaviour {
                 this.transform.localEulerAngles.y,
                 this.transform.localEulerAngles.z);
             Vector3 preFPosition = this.transform.position;
-            preFPosition.y += 1.68f;
+            if ( isClothes() == "megane" || isClothes() == "kaburimono" || isClothes() == "kami" ) {
+                preFPosition.y += 1.96f;
+            } else {
+                preFPosition.y += 1.64f;
+            }
             obj02.name = this.name + PrefabInputToList.pressAbutton.name;
 
             obj02.transform.position = preFPosition;
@@ -191,11 +201,15 @@ public class ManekinBehaviour : MonoBehaviour {
         GameObject wearingClothesObject;
 
         if (canWear && (Input.GetKeyDown(KeyCode.F) || Input.GetKey("joystick button 0"))) {
+            sound01 = FPSCamera.cameraNow.GetComponent<AudioSource>();
+
             //--今のアバタの服を隠し、マネキンの着ている服を表示する
             //このマネキンが着ている服のゲームオブジェクトの名前を取得
             clothes = returnClothes(this.transform.name);
             clothesName = clothes.transform.name;
-            
+
+            sound01.PlayOneShot(sound01.clip);
+
             //--隠された服のリストの要素から取得した名前と一致するものを検索
             for ( int i = PlayerBehaviour.falseClothesList.Count - 1; i >= 0; i-- ) {
                 //--眼鏡など、脱着できるものは別処理
@@ -206,6 +220,7 @@ public class ManekinBehaviour : MonoBehaviour {
                     PlayerBehaviour.falseClothesList[i].SetActive(true);
                     PlayerBehaviour.meganeNow = PlayerBehaviour.falseClothesList[i].name;
                     //PlayerBehaviour.falseClothesList.RemoveAt(i);
+                    break;
                 }
                 //眼鏡をかけている状態からほかの眼鏡を装着する
                 else if ( isClothes() == "megane" && PlayerBehaviour.meganeNow != null && PlayerBehaviour.falseClothesList[i].name == clothesName ) {
@@ -217,6 +232,7 @@ public class ManekinBehaviour : MonoBehaviour {
                         PlayerBehaviour.falseClothesList.Add(wearingClothesObject);
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.meganeNow = null;
+                        break;
                     } else { //異なるとき
                         //Debug.Log("different2");
                         PlayerBehaviour.falseClothesList[i].SetActive(true);
@@ -226,6 +242,7 @@ public class ManekinBehaviour : MonoBehaviour {
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.meganeNow = PlayerBehaviour.falseClothesList[i].name;
                         PlayerBehaviour.falseClothesList.RemoveAt(i);
+                        break;
                     }
                 }
 
@@ -234,6 +251,8 @@ public class ManekinBehaviour : MonoBehaviour {
                     //--アバタが着ている該当するものを非表示から表示に
                     PlayerBehaviour.falseClothesList[i].SetActive(true);
                     PlayerBehaviour.kaburimonoNow = PlayerBehaviour.falseClothesList[i].name;
+                    Debug.Log("初めて");
+                    break;
                     //PlayerBehaviour.falseClothesList.RemoveAt(i);
                 }
                 //眼鏡をかけている状態からほかの眼鏡を装着する
@@ -245,6 +264,8 @@ public class ManekinBehaviour : MonoBehaviour {
                         PlayerBehaviour.falseClothesList.Add(wearingClothesObject);
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.kaburimonoNow = null;
+                        Debug.Log("他の被り物");
+                        break;
                     }
                     else { //異なるとき
                         PlayerBehaviour.falseClothesList[i].SetActive(true);
@@ -254,6 +275,8 @@ public class ManekinBehaviour : MonoBehaviour {
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.kaburimonoNow = PlayerBehaviour.falseClothesList[i].name;
                         PlayerBehaviour.falseClothesList.RemoveAt(i);
+                        Debug.Log("異なる");
+                        break;
                     }
                 }
 

@@ -9,6 +9,11 @@ public class TouchObject : MonoBehaviour {
     public static string selectedObjectName;
     public static GameObject selectedObject;
     public static bool isTouch = false;
+
+    void Start() {
+
+    }
+
     void Update() {
         // 左クリックを取得
         if (Input.GetMouseButtonDown(0)) {
@@ -25,13 +30,16 @@ public class TouchObject : MonoBehaviour {
                 //Debug.Log(objectName);
                 //--アバタが決定し、編集部屋のシーンへ移行
                 if (objectName == "DeterminePanel" || objectName == "DeterminePanel2") {
+
+                    AttachFPSCamera.fpsCamera.transform.parent = AvatarInputToList.avatarNow.transform;
+
                     DontDestroyOnLoad(AvatarInputToList.avatarNow);
                     for ( int i = AvatarInputToList.avatarList.Count - 1; i >= 0; i-- ) {
                         if ( AvatarInputToList.avatarList[i] != AvatarInputToList.avatarNow ) {
-                            //Debug.Log(AvatarInputToList.avatarList[i]);
                             Destroy(AvatarInputToList.avatarList[i]);
                         }
                     }
+
                     SceneManager.LoadScene("AES");
                 }
                 selectedObjectName = selectedAvatarNameFromPanel(objectName);

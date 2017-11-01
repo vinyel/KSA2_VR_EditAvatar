@@ -10,8 +10,11 @@ public class CameraTracking : MonoBehaviour {
     Vector3 targetPos;
     private float angle = 90f;
 
+
+
     // Use this for initialization
     void Start () {
+
         targetObj = AvatarInputToList.avatarNow;
         targetPos = targetObj.transform.position;
     }
