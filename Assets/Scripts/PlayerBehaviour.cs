@@ -14,7 +14,8 @@ public class PlayerBehaviour : MonoBehaviour {
     public static string hukuNow;
     public static string zubonNow;
     public static string kamiNow;
-    public static string akusesariNow;
+    public static string meganeNow;
+    public static string kaburimonoNow;
     public static string kaoNow;
     public static string kutsuNow;
 
@@ -37,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
         hukuNow = "Huku01";
         zubonNow = "Zubon01";
-        kamiNow = "Hair01";
+        kamiNow = "Kami01";
         //akusesariNow = "Megane01";
         kaoNow = "Body";
         kutsuNow = "Shoes00";
@@ -59,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour {
                 continue;
             }
             //--アクセサリ
-            if (nameJudge(akusesariNow, avaChild.gameObject.name)) {
+            if (nameJudge(meganeNow, avaChild.gameObject.name)) {
                 continue;
             }
             //--顔

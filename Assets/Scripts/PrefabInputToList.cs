@@ -10,11 +10,14 @@ public class PrefabInputToList : MonoBehaviour {
     //--インスタンス化する前のprefab, 服, ズボン, 矢印
     public static List<GameObject> pfHukuList = new List<GameObject>();
     public static List<GameObject> pfZubonList = new List<GameObject>();
+    public static List<GameObject> pfKamiList = new List<GameObject>();
+    public static List<GameObject> pfKaburimonoList = new List<GameObject>();
+    public static List<GameObject> pfMeganeList = new List<GameObject>();
     //public static List<GameObject> pf
 
 
     public static GameObject yajirushi;
-    public static GameObject pressF;
+    public static GameObject pressAbutton;
     // Use this for initialization
     void Start () {
         // Listの初期化
@@ -31,10 +34,17 @@ public class PrefabInputToList : MonoBehaviour {
         pfZubonList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/zubon/Zubon01"));
         pfZubonList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/zubon/Zubon02"));
 
+        pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami01"));
+        pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami02"));
+
+        pfKaburimonoList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kaburimono/Kaburimono01"));
+
+        pfMeganeList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/megane/Megane01"));
+
         //pfZubonList.Add((GameObject)Resources.Load("Prefabs/zubon01"));
         //pfZubonList.Add((GameObject)Resources.Load("Prefabs/zubon02"));
         yajirushi = (GameObject)Resources.Load("Prefabs/yajirushi2");
-        pressF = (GameObject)Resources.Load("Prefabs/PressF");
+        pressAbutton = (GameObject)Resources.Load("Prefabs/PressAbutton");
     }
 
 	// Update is called once per frame

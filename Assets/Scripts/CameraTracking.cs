@@ -21,11 +21,11 @@ public class CameraTracking : MonoBehaviour {
         transform.position += targetObj.transform.position - targetPos;
         targetPos = targetObj.transform.position;
 
-        if ( Input.GetKey(KeyCode.E) ) {
+        if ( Input.GetKey(KeyCode.E) || Input.GetKey("joystick button 5") ) {
             Vector3 axis = transform.TransformDirection(Vector3.up);
             transform.RotateAround(targetPos, axis, angle * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Q)) {
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey("joystick button 4")) {
             Vector3 axis = transform.TransformDirection(Vector3.down);
             transform.RotateAround(targetPos, axis, angle * Time.deltaTime);
         }
