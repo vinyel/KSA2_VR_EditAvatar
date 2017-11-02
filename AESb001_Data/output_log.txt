@@ -1,0 +1,74 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(TM) Graphics 550 (ID=0x1927)
+    Vendor:   Intel
+    VRAM:     2111 MB
+    Driver:   21.20.16.4574
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.020 seconds
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\apple\Desktop\AvatarEditSystem\AESb001_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 60Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.659363 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2144 -> priority: 1 
+  Thread -> id: 2a7c -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.354203 ms
+
+Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 4447.
+Total: 1.137160 ms (FindLiveObjects: 0.141294 ms CreateObjectMapping: 0.022879 ms MarkObjects: 0.241159 ms  DeleteObjects: 0.731208 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.860020 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 4447.
+Total: 0.377816 ms (FindLiveObjects: 0.158608 ms CreateObjectMapping: 0.020405 ms MarkObjects: 0.193855 ms  DeleteObjects: 0.004637 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.181372 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 4447.
+Total: 0.392038 ms (FindLiveObjects: 0.187671 ms CreateObjectMapping: 0.015768 ms MarkObjects: 0.185198 ms  DeleteObjects: 0.003091 ms)
+
+初めて
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+他の被り物
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+初めて
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+他の被り物
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Main Camera (UnityEngine.GameObject), FPSCamera (UnityEngine.GameObject)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Main Camera (UnityEngine.GameObject), FPSCamera (UnityEngine.GameObject)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

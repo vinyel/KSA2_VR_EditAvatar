@@ -38,10 +38,10 @@ public class EditSkinColor : MonoBehaviour {
     void changeAvatarSkinColor(GameObject go) {
         Material material = null;
         if (AvatarInputToList.genderNow == "man") {
-            material = (Material)Resources.Load("Materials/Man/man00");
+            material = (Material)Resources.Load("Materials/man/man00");
         }
         else if ( AvatarInputToList.genderNow == "woman" ) {
-            material = (Material)Resources.Load("Materials/Woman/woman002-1");
+            material = (Material)Resources.Load("Materials/woman/woman002-1");
         }
         material.color = go.GetComponent<Renderer>().material.color;
     }
