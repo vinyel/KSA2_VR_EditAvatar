@@ -13,10 +13,15 @@ public class AvatarInputToList : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        var ava = GameObject.Find("man04x") as GameObject;
+        var ava = GameObject.Find("man01") as GameObject;
         avatarList.Add(ava);
-        ava = GameObject.Find("woman01x") as GameObject;
+        ava = GameObject.Find("woman01") as GameObject;
         avatarList.Add(ava);
+
+        /*-実験用-*/
+        ava = GameObject.Find("manZ") as GameObject;
+        avatarList.Add(ava);
+        /*-      -*/
 
         //--最初に表示させておくアバタを指定
         manageAvatar(avatarList[0].name);
@@ -52,11 +57,11 @@ public class AvatarInputToList : MonoBehaviour {
 
     void judgeGender(string gen) {
         //あいまい検索を活用
-        if (Regex.IsMatch(gen, "^man.*$", RegexOptions.Singleline)) {
+        
+        if (gen.StartsWith("man")) {
             genderNow = "man";
-            
         }
-        else if (Regex.IsMatch(gen, "^woman.*$", RegexOptions.Singleline)) {
+        else if (gen.StartsWith("woman")) {
             genderNow = "woman";
         }
 

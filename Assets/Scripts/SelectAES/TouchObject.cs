@@ -50,10 +50,15 @@ public class TouchObject : MonoBehaviour {
 
     string selectedAvatarNameFromPanel(string panelName) {
         if ( panelName == "SelectPanel01" ) {
-            return "man04x";
+            return "man01";
         }
         else if ( panelName == "SelectPanel11" ) {
-            return "woman01x";
+            return "woman01";
+        }
+
+        /*-実験用-*/
+        else if ( panelName == "SelectPanel14" ) {
+            return "manZ";
         }
         return null;
     }

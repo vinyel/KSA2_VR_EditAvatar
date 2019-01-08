@@ -10,7 +10,7 @@ public class AvatarManager : MonoBehaviour {
         //--転倒防止のため、rotationはすべて固定
         AvatarInputToList.avatarNow.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 		

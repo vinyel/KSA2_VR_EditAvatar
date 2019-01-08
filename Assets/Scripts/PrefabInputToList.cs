@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//マネキンに服を着せるメソッド
+//マネキンに服を着せる
 //新たに服等を実装したときに手入力あり★これとManekinBehaviour.csに手入力
 
 
@@ -30,16 +30,22 @@ public class PrefabInputToList : MonoBehaviour {
         pfHukuList.Add((GameObject)Resources.Load("Prefabs/"+ AvatarInputToList.genderNow +"/huku/Huku01"));
         pfHukuList.Add((GameObject)Resources.Load("Prefabs/"+ AvatarInputToList.genderNow +"/huku/Huku02"));
         pfHukuList.Add((GameObject)Resources.Load("Prefabs/"+ AvatarInputToList.genderNow +"/huku/Huku03"));
+        pfHukuList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/huku/Huku04"));
 
         pfZubonList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/zubon/Zubon01"));
         pfZubonList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/zubon/Zubon02"));
+        pfZubonList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/zubon/Zubon03"));
 
         pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami01"));
         pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami02"));
+        pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami03"));
+        pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami04"));
+        pfKamiList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kami/Kami05"));
 
         pfKaburimonoList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/kaburimono/Kaburimono01"));
 
         pfMeganeList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/megane/Megane01"));
+        pfMeganeList.Add((GameObject)Resources.Load("Prefabs/" + AvatarInputToList.genderNow + "/megane/Megane02"));
 
         //pfZubonList.Add((GameObject)Resources.Load("Prefabs/zubon01"));
         //pfZubonList.Add((GameObject)Resources.Load("Prefabs/zubon02"));

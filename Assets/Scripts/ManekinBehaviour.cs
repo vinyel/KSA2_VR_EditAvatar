@@ -251,7 +251,7 @@ public class ManekinBehaviour : MonoBehaviour {
                     //--アバタが着ている該当するものを非表示から表示に
                     PlayerBehaviour.falseClothesList[i].SetActive(true);
                     PlayerBehaviour.kaburimonoNow = PlayerBehaviour.falseClothesList[i].name;
-                    Debug.Log("初めて");
+                    //Debug.Log("初めて");
                     break;
                     //PlayerBehaviour.falseClothesList.RemoveAt(i);
                 }
@@ -264,7 +264,7 @@ public class ManekinBehaviour : MonoBehaviour {
                         PlayerBehaviour.falseClothesList.Add(wearingClothesObject);
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.kaburimonoNow = null;
-                        Debug.Log("他の被り物");
+                        //Debug.Log("他の被り物");
                         break;
                     }
                     else { //異なるとき
@@ -275,7 +275,7 @@ public class ManekinBehaviour : MonoBehaviour {
                         wearingClothesObject.SetActive(false);
                         PlayerBehaviour.kaburimonoNow = PlayerBehaviour.falseClothesList[i].name;
                         PlayerBehaviour.falseClothesList.RemoveAt(i);
-                        Debug.Log("異なる");
+                        //Debug.Log("異なる");
                         break;
                     }
                 }
@@ -335,7 +335,10 @@ public class ManekinBehaviour : MonoBehaviour {
            
             return PrefabInputToList.pfHukuList[2];
         }
+        else if (mn == "hukuManekin04_" + AvatarInputToList.genderNow) {
 
+            return PrefabInputToList.pfHukuList[3];
+        }
         //--続いてズボンを着るマネキンかどうか識別
         if ( mn == "zubonManekin01_" + AvatarInputToList.genderNow ) {
             return PrefabInputToList.pfZubonList[0];
@@ -343,13 +346,24 @@ public class ManekinBehaviour : MonoBehaviour {
         else if ( mn == "zubonManekin02_" + AvatarInputToList.genderNow ) {
             return PrefabInputToList.pfZubonList[1];
         }
-
+        else if (mn == "zubonManekin03_" + AvatarInputToList.genderNow) {
+            return PrefabInputToList.pfZubonList[2];
+        }
         //--髪を飾るマネキンかどうか
         if (mn == "kamiManekin01_" + AvatarInputToList.genderNow) {
             return PrefabInputToList.pfKamiList[0];
         }
         else if (mn == "kamiManekin02_" + AvatarInputToList.genderNow) {
             return PrefabInputToList.pfKamiList[1];
+        }
+        else if (mn == "kamiManekin03_" + AvatarInputToList.genderNow) {
+            return PrefabInputToList.pfKamiList[2];
+        }
+        else if (mn == "kamiManekin04_" + AvatarInputToList.genderNow) {
+            return PrefabInputToList.pfKamiList[3];
+        }
+        else if (mn == "kamiManekin05_" + AvatarInputToList.genderNow) {
+            return PrefabInputToList.pfKamiList[4];
         }
 
         //--被り物を飾るマネキンかどうか
@@ -361,12 +375,14 @@ public class ManekinBehaviour : MonoBehaviour {
         if (mn == "meganeManekin01_" + AvatarInputToList.genderNow) {
             return PrefabInputToList.pfMeganeList[0];
         }
-
+        else if (mn == "meganeManekin02_" + AvatarInputToList.genderNow) {
+            return PrefabInputToList.pfMeganeList[1];
+        }
         //見つからなければnull
 
         return null;
     }
-    //--マネキンの名前から服かズボンかなど判定★マネキンの種類が増えた時★
+    //--マネキンの名前から服かズボンかなど判定★マネキンの種類が増えた時(今までなかった種類の衣装)★
     string isClothes() {
         string thisManekinName = this.transform.name;
         string kinds;

@@ -144,7 +144,18 @@ public class SelectColorPanel : MonoBehaviour {
                 else if (selectedObject == colorPanelList[10]) {
                     changeColorOfParticularObject(colorPanelList[10]);
                 }
-
+                else if (selectedObject == colorPanelList[11]) {
+                    changeColorOfParticularObject(colorPanelList[11]);
+                }
+                else if (selectedObject == colorPanelList[12]) {
+                    changeColorOfParticularObject(colorPanelList[12]);
+                }
+                else if (selectedObject == colorPanelList[13]) {
+                    changeColorOfParticularObject(colorPanelList[13]);
+                }
+                else if (selectedObject == colorPanelList[14]) {
+                    changeColorOfParticularObject(colorPanelList[14]);
+                }
             }
         }
     }
