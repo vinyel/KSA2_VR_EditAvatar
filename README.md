@@ -1,7 +1,7 @@
 # KSA2_VR_EditAvatar
 - 研究用に開発したUnityプロジェクトのアバタ編集システムです。
 - このシステムを使ってプロテウス効果を研究していました。
-- 3Dアバタを着替えさせたりすることができます。
+- 3Dアバタの着替えができます。
 - この開発を通して、UnityとBlenderの使い方をある程度習得しました。
 
 ![aes](https://user-images.githubusercontent.com/25292248/51665498-38b4b800-1fff-11e9-9120-f80df15e3276.gif)
@@ -12,7 +12,7 @@ Yeeらが以下を提唱
 - 上記のような行動をとり続ける態度が、現実世界にも表れる。【Ⅱ】
 
 つまり、アバタの見た目とユーザの積極性や外向性が互いに作用する現象と言えます。  
-このプロテウス効果を研究室で開発していたVRシステムにおける仮想空間内での外向性によって評価し、アバタ編集システムの有用性を検証していました。 
+研究室で開発していたVRシステムの仮想空間内で、編集したアバタを使用するユーザの外向性を評価し、アバタ編集システムの有用性を検証していました。 
 
 【Ⅰ】Yee, N. and Bailenson, JN. 2007. The Proteus Effect: The Effect of Transformed Self-Representation on Behavior. Human Communication Research, ISSN 0360-3989, 33, 271–290.   
 【Ⅱ】Yee, N., Bailenson, JN. and Ducheneaut, N. 2009. The Proteus Effect: Implications of Transformed Digital Self-Representation on Online and Offline Behavior. Communication Research, 33(2), 285–312. 
@@ -24,7 +24,7 @@ Yeeらが以下を提唱
 3Dアバタのモデリング用のモデリングソフト
 
 ## アバタ編集システム
-- 3Dアバタなどは自作ですが、モーションはアセットストアの物を利用しました。
+- 3Dアバタなどは自作ですが、モーションのみアセットストアの物を利用しました。
 - 3Dアバタの衣装の変更機能と肌や衣装の色の変更機能があります。
 - 性別、髪型、服やズボン、アクセサリ、各々の色を変更可能です。
 - 操作はゲームパッド、またはキーボードとマウスです。
